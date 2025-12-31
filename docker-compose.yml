@@ -20,8 +20,10 @@ services:
 #    restart: always
 
   nginx:
-    build: ./front
-    image: nginx:1.25-alpine
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    image: burgbot-frontend   # ← ВОТ ЭТО КЛЮЧ
     restart: always
     ports:
       - "80:80"
