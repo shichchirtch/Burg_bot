@@ -1,12 +1,12 @@
 services:
   redis1226:
     image: redis:7
-    container_name: redis1226
     restart: always
+    volumes:
+      - redis_data:/data
 
   backend:
     build: ./back
-    container_name: backend
     restart: always
     env_file: main.env
     depends_on:
@@ -17,12 +17,10 @@ services:
 
   frontend:
     build: ./front
-    container_name: frontend
     restart: always
 
   nginx:
     image: nginx:1.25-alpine
-    container_name: nginx
     restart: always
     ports:
       - "80:80"
@@ -36,7 +34,7 @@ services:
       - backend
       - frontend
 
-
-
+volumes:
+  redis_data:
 
 

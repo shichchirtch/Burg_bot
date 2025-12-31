@@ -1,0 +1,20 @@
+порядок команд подъёма контейнеров
+
+1.    git clone https://github.com/USERNAME/REPO.git
+cd REPO
+
+2. ping bsbot.org - Должен отвечать IP твоего сервера
+
+3. Создаём папки для certbot (обязательно)
+mkdir -p certbot/conf
+mkdir -p certbot/www
+4.docker compose up -d nginx первый запуск только нджинкс
+
+5.  Получаем SSL-сертификат (certbot)
+docker compose -f docker-compose.certbot.yml run --rm certbot
+6. Проверяем, что сертификаты реально появились
+ls certbot/conf/live/bsbot.org/
+7. Должно быть:
+fullchain.pem
+privkey.pem
+8 docker compose up -d --build полный запуск
