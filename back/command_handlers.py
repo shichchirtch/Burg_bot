@@ -8,7 +8,9 @@ from bot_instance import FSM_ST, ADMIN
 from aiogram_dialog import  DialogManager, StartMode
 from  external_functions import get_user_count
 from my_fast_api import r
-
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 ch_router = Router()
 
@@ -16,7 +18,7 @@ ch_router = Router()
 async def command_start_process(message:Message, dialog_manager: DialogManager, state:FSMContext):
     user_id = str(message.from_user.id)
     user_name = message.from_user.first_name
-
+    logger.warning("🔥 BOT HANDLER CALLED")
     # инициализировать профиль в Redis (если ещё нет)
     key_profile = f"user:{user_id}:profile"
     exists = await r.exists(key_profile)
@@ -25,7 +27,6 @@ async def command_start_process(message:Message, dialog_manager: DialogManager, 
     if not exists:
         await r.hset(key_profile, mapping={
             "first_name": user_name,
-            # "created_at": datetime.utcnow().isoformat()
         })
         await r.sadd("users", user_id)  #  Добавляю в сэт tg_us_id
 
