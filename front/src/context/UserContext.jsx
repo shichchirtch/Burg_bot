@@ -92,7 +92,7 @@ export function UserProvider({ children }) {
     }
 
     return (
-        <UserContextJS.Provider value={{
+        <UserContext.Provider value={{
             user,
             setMonaten,
             modal,
@@ -100,7 +100,7 @@ export function UserProvider({ children }) {
             closeModal
         }}>
             {children}
-        </UserContextJS.Provider>
+        </UserContext.Provider>
     );
 }
 
