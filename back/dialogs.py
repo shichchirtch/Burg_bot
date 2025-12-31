@@ -12,11 +12,16 @@ import operator, asyncio, datetime
 from external_functions import radio_spam_button_clicked
 from static_func import *
 from my_fast_api import r
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 async def get_spam(dialog_manager: DialogManager, **kwargs):
     spam = [('🤢', '1'), ('😃', '2')]
     check_info = dialog_manager.dialog_data.get('spam_wahl', '')
+    print('Print works !\n\n')
+    logger.info('Loger works !\n\n')
     return {"spam_data": spam, 'spam_wahl': check_info}
 
 
