@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {UserContext} from "./userContext.js";
+import {UserContextJS} from "./userContextJS.js";
 
 
 export function UserProvider({ children }) {
@@ -93,7 +93,7 @@ export function UserProvider({ children }) {
     }
 
     return (
-        <UserContext.Provider value={{
+        <UserContextJS.Provider value={{
             user,
             setMonaten,
             modal,
@@ -101,7 +101,7 @@ export function UserProvider({ children }) {
             closeModal
         }}>
             {children}
-        </UserContext.Provider>
+        </UserContextJS.Provider>
     );
 }
 

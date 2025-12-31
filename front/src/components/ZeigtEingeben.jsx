@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import {UserContext} from "../context/userContext.js";
+import {UserContextJS} from "../context/userContextJS.js";
 
 export default function ZeigtEingeben() {
-    const { user } = useContext(UserContext);
+    const { user } = useContext(UserContextJS);
     const navigate = useNavigate();
 
     const totalSquares = 60;                     // 6×10
