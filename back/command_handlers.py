@@ -2,8 +2,6 @@ from aiogram import Router, html
 import asyncio
 from aiogram.types import Message, ReplyKeyboardRemove
 from aiogram.filters import CommandStart, Command
-
-from back.bot_base import user_dict
 from filters import  IS_ADMIN, PRE_START
 from aiogram.fsm.context import FSMContext
 from bot_instance import FSM_ST, ADMIN, ABOUT
