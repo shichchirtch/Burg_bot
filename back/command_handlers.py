@@ -62,6 +62,7 @@ async def command_help(message: Message, dialog_manager: DialogManager):
     'Sie können den Bot auch nutzen, um Notizen zu Ihren Beiträgen oder zu beliebigen anderen Themen zu erstellen.\n\n'
     'Это бот для подсчета взносов в песионный фонд Германии. Отмечайте по календарю, когда Вы сделали взнос.\n\n'
     'В боте можно создавать заметки по поводу сделанных взносов или просто на любую тему.\n\n😉')
+    await asyncio.sleep(1)
     await dialog_manager.start(state=FSM_ST.start, mode=StartMode.RESET_STACK)
 
 
@@ -85,6 +86,7 @@ async def admin_enter(message: Message, dialog_manager: DialogManager):
 @ch_router.message(Command('/about_project'))
 async def aboutProject(message: Message, dialog_manager: DialogManager):
     print('\n\n\n ABOUT PROJECT WORKS')
+    logger.warning('\n\n\n******************** about')
     await dialog_manager.start(state=ABOUT.one, mode=StartMode.RESET_STACK)
     await asyncio.sleep(1)
     await message.delete()
