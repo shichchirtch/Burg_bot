@@ -73,8 +73,15 @@ async def command_help(message: Message, dialog_manager: DialogManager):
 
 @ch_router.message(Command('wieviel'))
 async def command_wieviel(message: Message, dialog_manager: DialogManager):
+    print('\n\nwork function comand_wieviel')
     wieviel = await get_user_count()
     zusammen_eintrag = await get_total_months_count()
     await message.answer(text=f'Bot wurde bereits von <b>{wieviel}</b> Nutzern, wie Ihnen, gestartet. 🎲\n\n'
                               f'Insgesamt wurden <b>{zusammen_eintrag}</b> Beiträge geleistet.')
     await dialog_manager.start(state=FSM_ST.basic, mode=StartMode.RESET_STACK)
+
+@ch_router.message(Command('admin'), IS_ADMIN())
+async def admin_enter(message: Message, dialog_manager: DialogManager):
+    await dialog_manager.start(ADMIN.first)
+    await asyncio.sleep(1)
+    await message.delete()

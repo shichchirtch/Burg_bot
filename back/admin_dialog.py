@@ -4,17 +4,15 @@ from aiogram_dialog.widgets.kbd import Button, Row, Next, Cancel
 from aiogram_dialog.widgets.input import MessageInput
 from aiogram.types import CallbackQuery, Message
 from aiogram_dialog import DialogManager
-from aiogram.fsm.state import State, StatesGroup
+from bot_instance import ADMIN
 from aiogram.types import ContentType
 import asyncio
 from aiogram.exceptions import TelegramForbiddenError
 from my_fast_api import r
 
 
-class ADMIN(StatesGroup):
-    first = State()
-    accept_msg = State()
-    admin_send_msg = State()
+
+
 
 
 async def accepet_admin_message(msg:Message, widget: MessageInput, dialog_manager: DialogManager, *args, **kwargs):

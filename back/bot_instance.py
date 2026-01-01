@@ -7,6 +7,7 @@ from aiogram.fsm.storage.redis import RedisStorage, Redis
 from aiogram.fsm.storage.base import DefaultKeyBuilder
 from config import settings
 
+
 key_builder = DefaultKeyBuilder(with_destiny=True)
 
 aiogram_redis = Redis(
@@ -46,6 +47,11 @@ class ZEIGEN(StatesGroup):
     clava = State()
     list_notes = State()
     schlist = State()
+
+class ADMIN(StatesGroup):
+    first = State()
+    accept_msg = State()
+    admin_send_msg = State()
 
 
 
