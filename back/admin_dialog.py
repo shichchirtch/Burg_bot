@@ -1,14 +1,15 @@
-from aiogram_dialog import Dialog, Window
+from aiogram_dialog import Dialog, Window, ShowMode
 from aiogram_dialog.widgets.text import Const
 from aiogram_dialog.widgets.kbd import Button, Row, Next, Cancel
 from aiogram_dialog.widgets.input import MessageInput
 from aiogram.types import CallbackQuery, Message
 from aiogram_dialog import DialogManager
-from bot_instance import ADMIN, ABOUT
+from bot_instance import ADMIN, ABOUT, bot, FSM_ST
 from aiogram.types import ContentType
 import asyncio
 from aiogram.exceptions import TelegramForbiddenError
 from my_fast_api import r
+from static_func import check_len_note
 
 
 
