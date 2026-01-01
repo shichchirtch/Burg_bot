@@ -46,7 +46,7 @@ export function UserProvider({ children }) {
             }
 
             try {
-                const res = await fetch("https://bsbot.org/receive_telegram_data", {
+                const res = await fetch("/api/receive_telegram_data", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ user_id: telegramId })
