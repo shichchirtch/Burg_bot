@@ -2,6 +2,8 @@ from aiogram import Router, html
 import asyncio
 from aiogram.types import Message, ReplyKeyboardRemove
 from aiogram.filters import CommandStart, Command
+
+from back.bot_base import user_dict
 from filters import  IS_ADMIN, PRE_START
 from aiogram.fsm.context import FSMContext
 from bot_instance import FSM_ST, ADMIN, ABOUT
@@ -18,6 +20,9 @@ ch_router = Router()
 async def command_start_process(message:Message, dialog_manager: DialogManager, state:FSMContext):
     user_id = str(message.from_user.id)
     user_name = message.from_user.first_name
+    us_data = message.from_user
+    logger.warning(us_data)
+
     logger.warning("🔥 BOT HANDLER CALLED")
     # инициализировать профиль в Redis (если ещё нет)
     key_profile = f"user:{user_id}:profile"

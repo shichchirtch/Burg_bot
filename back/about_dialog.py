@@ -25,7 +25,7 @@ async def message_text_acc(message: Message, widget: MessageInput, dialog_manage
     await message.answer(text=f'Die Nachricht wurde erfolgreich gesendet.')
     await asyncio.sleep(1)
     dialog_manager.show_mode = ShowMode.DELETE_AND_SEND
-    await dialog_manager.switch_to(FSM_ST.start)
+    await dialog_manager.done()
 
 
 about_dialog = Dialog(
