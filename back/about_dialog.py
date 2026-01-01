@@ -40,9 +40,9 @@ about_dialog = Dialog(
         Const('<b>Über das Projekt</b>\n\n'
               'Dieser Bot kombiniert folgende Technologien:\n\n'
                 '✅ <b>aiogram_dialog</b>\n\n'
-              '✅Fast API\n\n'
-              '✅ React+Vite\n\n'
-              '✅ Redis wie Datenbank\n\n\n',
+              '✅<b>Fast API</b>\n\n'
+              '✅ <b>React+Vite</b>\n\n'
+              '✅ <b>Redis wie Datenbank</b>\n\n\n',
                 'Um den Entwickler zu kontaktieren, senden Sie eine Nachricht.'),
         Row(Next(Const('✉️'),
             id="schreib_nachrichten",
