@@ -1,11 +1,9 @@
-from aiogram_dialog import Dialog, StartMode, Window, DialogManager, ShowMode
+from aiogram_dialog import Dialog, Window, DialogManager, ShowMode
 from aiogram.types import Message, CallbackQuery
-from bot_instance import FSM_ST, CREATE, ZEIGEN, dp, bot_storage_key
+from bot_instance import FSM_ST, CREATE, ZEIGEN
 from aiogram_dialog.widgets.text import Const, Format
-from aiogram_dialog.widgets.kbd import (Button, Row, Cancel, Select, Radio,
-                                        Next, Start, Group, Back, SwitchTo)
-from aiogram_dialog.widgets.input import TextInput, MessageInput, ManagedTextInput
-from aiogram_dialog.widgets.media import DynamicMedia
+from aiogram_dialog.widgets.kbd import Button, Row, Cancel, Radio, Next, Start
+from aiogram_dialog.widgets.input import MessageInput
 from aiogram.types import ContentType
 import json
 import operator, asyncio, datetime

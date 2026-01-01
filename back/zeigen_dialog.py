@@ -1,7 +1,7 @@
 import asyncio, json
 from aiogram_dialog import Dialog, StartMode, Window, DialogManager, ShowMode
 from aiogram.types import Message, CallbackQuery
-from bot_instance import ZEIGEN, dp,bot_storage_key
+from bot_instance import ZEIGEN
 from aiogram_dialog.widgets.text import Const, Format
 from aiogram_dialog.widgets.kbd import Button, Row, Cancel, Select, Group
 from my_fast_api import r
