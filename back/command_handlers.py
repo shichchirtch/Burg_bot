@@ -46,21 +46,23 @@ async def command_start_process(message:Message, dialog_manager: DialogManager, 
 
 @ch_router.message(PRE_START())
 async def before_start(message: Message):
-    prestart_ant = await message.answer(text='Klicken auf <b>start</b> !',
-                                        reply_markup=pre_start_clava)
+    prestart_ant = await message.answer(text='Klicken auf /start !')
     await message.delete()
     await asyncio.sleep(3)
     await prestart_ant.delete()
 
 
-@ch_router.message(Command('basic_menu'))
+@ch_router.message(Command('hauptfenster'))
 async def basic_menu_start(message: Message, dialog_manager: DialogManager):
     await dialog_manager.start(state=FSM_ST.start, mode=StartMode.RESET_STACK)
 
 
 @ch_router.message(Command('help'))
 async def command_help(message: Message, dialog_manager: DialogManager):
-    await message.answer(text='help text')
+    await message.answer(text='👋 Dieser Bot berechnet Ihre Beiträge zur deutschen Rentenversicherung. Tragen Sie Ihre Beiträge im Kalender ein.\n\n'
+    'Sie können den Bot auch nutzen, um Notizen zu Ihren Beiträgen oder zu beliebigen anderen Themen zu erstellen.\n\n'
+    'Это бот для подсчета взносов в песионный фонд Германии. Отмечайте по календарю, когда Вы сделали взнос.\n\n'
+    'В боте можно создавать заметки по поводу сделанных взносов или просто на любую тему.\n\n😉')
     await dialog_manager.start(state=FSM_ST.basic, mode=StartMode.RESET_STACK)
 
 
@@ -71,7 +73,7 @@ async def command_wieviel(message: Message, dialog_manager: DialogManager):
     zusammen_eintrag = await get_total_months_count()
     await message.answer(text=f'Bot wurde bereits von <b>{wieviel}</b> Nutzern, wie Ihnen, gestartet. 🎲\n\n'
                               f'Insgesamt wurden <b>{zusammen_eintrag}</b> Beiträge geleistet.')
-    await dialog_manager.start(state=FSM_ST.basic, mode=StartMode.RESET_STACK)
+    await dialog_manager.start(state=FSM_ST.start, mode=StartMode.RESET_STACK)
 
 
 @ch_router.message(Command('admin'), IS_ADMIN())
