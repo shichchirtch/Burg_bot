@@ -13,13 +13,6 @@ class PRE_START(BaseFilter):
             return True
         return False
 
-class TEXT_FILTER(BaseFilter):
-    async def __call__(self, message: Message):
-        print('TEXT_FILTER works')
-        if message.text.startswith('s'):
-            return True
-        return False
-
 
 class IS_ADMIN(BaseFilter):
     async def __call__(self, message: Message):
