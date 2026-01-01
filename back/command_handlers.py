@@ -22,7 +22,8 @@ async def command_start_process(message:Message, dialog_manager: DialogManager, 
     # инициализировать профиль в Redis (если ещё нет)
     key_profile = f"user:{user_id}:profile"
     exists = await r.exists(key_profile)
-    logger.warning('exists = ', exists)
+    logger.warning("Heir !!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    logger.warning(f"exists = {exists}")
 
     if not exists:
         await r.hset(key_profile, mapping={
@@ -34,7 +35,7 @@ async def command_start_process(message:Message, dialog_manager: DialogManager, 
 
     await message.answer(text=f'Hallo, {html.bold(html.quote(user_name))}!\nIch bin MINI APP Bot'
                               f'Ich wurde bereits von <b>{users_started_bot_allready}</b> Nutzern, wie Ihnen, gestartet. 🎲', reply_markup=ReplyKeyboardRemove())
-    await message.answer("Bitte klicken Sie auf den <b>Burg</b>, um die Web-App zu öffnen. ↙️"),
+    await message.answer("Bitte klicken Sie auf den <b>Burg</b>, um die Web-App zu öffnen. ↙️")
     await dialog_manager.start(state=FSM_ST.spam, mode=StartMode.RESET_STACK)
     logger.warning('\n\n\nWe are hier !😀😀😀')
 

@@ -2,12 +2,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
 import os
-# from bot_base import  users_db
-# from redis_client import r
-
-
 from bot_instance import bot
-
 import logging
 import redis.asyncio as aioredis
 
