@@ -4,7 +4,7 @@ from aiogram.types import Message, ReplyKeyboardRemove
 from aiogram.filters import CommandStart, Command
 from filters import  IS_ADMIN, PRE_START
 from aiogram.fsm.context import FSMContext
-from bot_instance import FSM_ST, ADMIN
+from bot_instance import FSM_ST, ADMIN, ABOUT
 from aiogram_dialog import  DialogManager, StartMode
 from  external_functions import get_user_count, get_total_months_count
 from my_fast_api import r
@@ -85,6 +85,6 @@ async def admin_enter(message: Message, dialog_manager: DialogManager):
 
 @ch_router.message(Command('/about_project'))
 async def aboutProject(message: Message, dialog_manager: DialogManager):
-
-
-    await dialog_manager.start(state=FSM_ST.start, mode=StartMode.RESET_STACK)
+    await dialog_manager.start(state=ABOUT.one, mode=StartMode.RESET_STACK)
+    await asyncio.sleep(1)
+    await message.delete()
