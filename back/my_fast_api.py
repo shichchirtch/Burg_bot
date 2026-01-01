@@ -37,7 +37,7 @@ async def ping():
     return {"pong": True}
 
 
-@f_api.post("/api/receive_telegram_data")
+@f_api.post("/receive_telegram_data")
 async def receive_telegram_data(data: dict):
     print("PY Charm speak 📦 Полученные данные от Telegram:", data)
     user_id = data["user_id"]
@@ -46,7 +46,7 @@ async def receive_telegram_data(data: dict):
                            text = f"user_id from webapp: {user_id}")
     return {"ok": True}
 
-@f_api.post("/api/start-test")
+@f_api.post("/start-test")
 async def start_test(data: dict):
     print("✅ START TEST CALLED", data)
     return {
@@ -56,7 +56,7 @@ async def start_test(data: dict):
     }
 
 
-@f_api.post("/api/get-user-months")
+@f_api.post("/get-user-months")
 async def get_user_months(request: Request):
     data = await request.json()
     print('data = ', data)
@@ -85,7 +85,7 @@ async def get_user_months(request: Request):
     return {"monaten": monaten }
 
 
-@f_api.post("/api/month-select")
+@f_api.post("/month-select")
 async def month_select(request: Request):
     data = await request.json()
     print('coming data = ', data)

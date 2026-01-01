@@ -22,7 +22,7 @@ function ToggleMonatenButton({ label, year, isActive, toggleMonth }) {
 
         // 2. Шлём обновление на сервер
         try {
-            await fetch("https://bsbot.org/api/month-select", {
+            await fetch("https://bsbot.org/month-select", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
