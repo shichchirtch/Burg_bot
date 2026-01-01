@@ -84,6 +84,7 @@ async def admin_enter(message: Message, dialog_manager: DialogManager):
 
 @ch_router.message(Command('/about_project'))
 async def aboutProject(message: Message, dialog_manager: DialogManager):
+    print('\n\n\n ABOUT PROJECT WORKS')
     await dialog_manager.start(state=ABOUT.one, mode=StartMode.RESET_STACK)
     await asyncio.sleep(1)
     await message.delete()
