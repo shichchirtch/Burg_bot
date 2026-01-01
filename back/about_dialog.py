@@ -9,17 +9,14 @@ from aiogram_dialog.widgets.kbd import Row, Cancel, Next
 from aiogram_dialog.widgets.input import MessageInput
 from static_func import check_len_note
 
-
+admin_id = 6685637602
 async def message_text_acc(message: Message, widget: MessageInput, dialog_manager: DialogManager) -> None:
     print('we into message_text_acc')
-    user_id = message.from_user.id
-    us_data = message.from_user
-    print('us_data = ', us_data)
-    user_name = message.from_user.first_name
+    name = message.from_user.first_name
+    user_name = message.from_user.username
     note = check_len_note(message.text)
-    note = f'{note}\n\n\n von {user_name}'
-    await bot.send_message(user_id, note)
-
+    note = f'{note}\n\n\n von {name}  {user_name}'
+    await bot.send_message(admin_id, note)
     await asyncio.sleep(1)
 
     await message.answer(text=f'Die Nachricht wurde erfolgreich gesendet.')
@@ -31,12 +28,12 @@ async def message_text_acc(message: Message, widget: MessageInput, dialog_manage
 about_dialog = Dialog(
     Window(
         Const('<b>Über das Projekt</b>\n\n'
-              'Dieser Bot kombiniert folgende Technologien:\n\n'
-              '✅ <b>aiogram_dialog</b>\n\n'
-              '✅<b>Fast API</b>\n\n'
-              '✅ <b>React+Vite</b>\n\n'
-              '✅ <b>Redis wie Datenbank</b>\n\n\n',
-              'Um den Entwickler zu kontaktieren, senden Sie eine Nachricht.'),
+    'Dieser Bot kombiniert folgende Technologien:\n\n'
+    '✅ <b>aiogram_dialog</b>\n'
+    '✅ <b>FastAPI</b>\n'
+    '✅ <b>React + Vite</b>\n'
+    '✅ <b>Redis als Datenbank</b>\n\n'
+    'Um den Entwickler zu kontaktieren, senden Sie eine Nachricht.'),
         Row(Next(Const('✉️'),
                  id="schreib_nachrichten",
                  ),
